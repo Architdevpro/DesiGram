@@ -1,0 +1,766 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #fafafa;
+}
+
+/* Header Styles */
+.header {
+    background: white;
+    border-bottom: 1px solid #dbdbdb;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 8px 0;
+}
+
+.header-content {
+    max-width: 975px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #262626;
+    text-decoration: none;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-bar {
+    background: #efefef;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 268px;
+    font-size: 14px;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+}
+.search-result-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #efefef;
+}
+
+.search-result-item:hover {
+    background: #f8f9fa;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.nav-btn:hover {
+    background: #f8f9fa;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    fill: #262626;
+}
+/* Main Container */
+.main-container {
+    max-width: 614px;
+    margin: 88px auto 0;
+    padding: 0 20px;
+}
+
+/* Stories Styles */
+.stories-container {
+    background: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+}
+
+.story {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 66px;
+    cursor: pointer;
+}
+
+.story-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  padding: 2px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-story-icon {
+    width: 52px;
+    height: 52px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #0095f6;
+}
+
+.story-username {
+    font-size: 12px;
+    color: #262626;
+    text-align: center;
+    max-width: 66px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* Post Styles */
+.post {
+    background: white;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    gap: 12px;
+}
+
+.post-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+}
+
+.post-username {
+    font-weight: 600;
+    font-size: 14px;
+    color: #262626;
+    text-decoration: none;
+}
+.post-content {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.gradient1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.gradient2 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+.gradient3 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+.gradient4 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+.gradient5 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+
+.post-actions {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 16px;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+    background: #f8f9fa;
+}
+
+.action-icon {
+    width: 24px;
+    height: 24px;
+    fill: #262626;
+    transition: fill 0.2s;
+}
+
+.liked {
+    fill: #ed4956 !important;
+}
+
+.likes {
+    font-weight: 600;
+    font-size: 14px;
+    color: #262626;
+    padding: 0 16px;
+}
+.post-caption {
+    padding: 0 16px 16px;
+    font-size: 14px;
+    color: #262626;
+    line-height: 1.4;
+}
+
+.caption-username {
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.post-time {
+    padding: 0 16px 16px;
+    font-size: 10px;
+    color: #8e8e8e;
+    text-transform: uppercase;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #8e8e8e;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-post-form, .create-story-form {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #262626;
+}
+
+.form-group textarea,
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    box-sizing: border-box;
+}
+.form-group textarea {
+    min-height: 100px;
+}
+
+.submit-btn {
+    width: 100%;
+    background: #0095f6;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background: #1877f2;
+}
+
+/* Story Backgrounds */
+.bg1 { background: linear-gradient(135deg, #ff6b6b, #ee5a24); }
+.bg2 { background: linear-gradient(135deg, #74b9ff, #0984e3); }
+.bg3 { background: linear-gradient(135deg, #fdcb6e, #e17055); }
+.bg4 { background: linear-gradient(135deg, #55a3ff, #003d82); }
+.bg5 { background: linear-gradient(135deg, #a29bfe, #6c5ce7); }
+/* Responsive Design */
+@media (max-width: 768px) {
+    .search-bar {
+        display: none;
+    }
+    
+    .main-container {
+        max-width: 100%;
+        padding: 0;
+        margin-top: 64px;
+    }
+    
+    .post, .stories-container {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #8e8e8e;
+}
+
+.empty-state h3 {
+    margin-bottom: 8px;
+    color: #262626;
+  }
+
+.empty-state p {
+    margin: 0;
+    font-size: 14px;
+}
+And finally, here's the JavaScript file (script.js):
+// App State
+let posts = [];
+let stories = [];
+let currentUser = 'you';
+
+// DOM Elements
+const createBtn = document.getElementById('createBtn');
+const createPostModal = document.getElementById('createPostModal');
+const closeModalBtn = document.getElementById('closeModalBtn');
+const createPostForm = document.getElementById('createPostForm');
+const postsContainer = document.getElementById('postsContainer');
+const storiesContainer = document.getElementById('storiesContainer');
+const addStoryBtn = document.getElementById('addStoryBtn');
+const storyModal = document.getElementById('storyModal');
+const closeStoryModalBtn = document.getElementById('closeStoryModalBtn');
+const createStoryForm =  
+document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+
+// Initialize App
+document.addEventListener('DOMContentLoaded', function() {
+    loadInitialContent();
+    setupEventListeners();
+});
+
+// Event Listeners
+function setupEventListeners() {
+    // Modal controls
+    createBtn.addEventListener('click', () => openModal(createPostModal));
+    closeModalBtn.addEventListener('click', () => closeModal(createPostModal));
+    closeStoryModalBtn.addEventListener('click', () => closeModal(storyModal));
+    
+    // Story creation
+    addStoryBtn.addEventListener('click', () => openModal(storyModal));
+    
+    // Form submissions
+    createPostForm.addEventListener('submit', handleCreatePost);
+    createStoryForm.addEventListener('submit', handleCreateStory);
+    
+    // Search functionality
+    searchInput.addEventListener('input', handleSearch);
+  searchInput.addEventListener('focus', () => searchResults.style.display = 'block');
+    searchInput.addEventListener('blur', () => {
+        setTimeout(() => searchResults.style.display = 'none', 200);
+    });
+    
+    // Navigation
+    document.getElementById('homeBtn').addEventListener('click', () => scrollToTop());
+    document.getElementById('profileBtn').addEventListener('click', () => showProfile());
+    
+    // Close modals when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+            closeModal(e.target);
+        }
+    });
+}
+
+// Modal Functions
+function openModal(modal) {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+      // Reset forms
+    const forms = modal.querySelectorAll('form');
+    forms.forEach(form => form.reset());
+}
+
+// Post Creation
+function handleCreatePost(e) {
+    e.preventDefault();
+    
+    const caption = document.getElementById('postCaption').value;
+    const imageUrl = document.getElementById('postImage').value;
+    const colorClass = document.getElementById('postColor').value;
+    
+    if (!caption.trim()) {
+        alert('Please enter a caption for your post.');
+        return;
+    }
+    
+    const newPost = {
+        id: Date.now(),
+        username: currentUser,
+        caption: caption.trim(),
+        imageUrl: imageUrl.trim(),
+        colorClass: colorClass,
+        likes: 0,
+        liked: false,
+        timestamp: new Date()
+    };
+    posts.unshift(newPost);
+    renderPosts();
+    closeModal(createPostModal);
+    
+    // Show success message
+    showNotification('Post shared successfully!');
+}
+
+// Story Creation
+function handleCreateStory(e) {
+    e.preventDefault();
+    
+    const text = document.getElementById('storyText').value;
+    const background = document.getElementById('storyBackground').value;
+    
+    if (!text.trim()) {
+        alert('Please enter some text for your story.');
+        return;
+    }
+    
+    const newStory = {
+        id: Date.now(),
+        username: currentUser,
+        text: text.trim(),
+        background: background,
+        timestamp: new Date()
+    };
+    
+    stories.unshift(newStory);
+    renderStories();
+    closeModal(storyModal);
+      // Show success message
+    showNotification('Story added successfully!');
+}
+
+// Render Functions
+function renderPosts() {
+    if (posts.length === 0) {
+        postsContainer.innerHTML = `
+            <div class="empty-state">
+                <h3>No posts yet</h3>
+                <p>Create your first post to get started!</p>
+            </div>
+        `;
+        return;
+    }
+    
+    postsContainer.innerHTML = posts.map(post => `
+        <article class="post" data-post-id="${post.id}">
+            <div class="post-header">
+                <div class="post-avatar"></div>
+                <a href="#" class="post-username">${post.username}</a>
+            </div>
+            <div class="post-content ${post.colorClass}">
+                ${post.imageUrl ? `<img src="${post.imageUrl}" alt="Post image" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">` : ''}
+                <div ${post.imageUrl ? 'style="display: none;"' : ''}>${post.caption}</div>
+            </div>
+            <div class="post-actions">
+                <button class="action-btn like-btn" 
+                       onclick="sharePost(${post.id})">
+                    <svg class="action-icon" viewBox="0 0 24 24">
+                        <path d="M12.003 2.001c5.55 0 10.001 4.451 10.001 9.996 0 5.546-4.451 9.997-10.001 9.997-5.55 0-9.996-4.451-9.996-9.997 0-5.545 4.446-9.996 9.996-9.996zm0 1.5c-4.69 0-8.496 3.807-8.496 8.496s3.807 8.497 8.496 8.497 8.497-3.807 8.497-8.497-3.807-8.496-8.497-8.496zm-.747 7.75h-3.5c-.414 0-.75.336-.75.75s.336.75.75.75h3.5v3.5c0 .414.336.75.75.75s.75-.336.75-.75v-3.5h3.5c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-3.5v-3.5c0-.414-.336-.75-.75-.75s-.75.336-.75.75v3.5z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="likes">${post.likes} ${post.likes === 1 ? 'like' : 'likes'}</div>
+            <div class="post-caption">
+                <span class="caption-username">${post.username}</span>
+                ${post.caption}
+            </div>
+            <div class="post-time">${formatTime(post.timestamp)}</div>
+        </article>
+    `).join('');
+}
+
+function renderStories() {
+    const userStories = stories.map(story => `
+        <div class="story" onclick="viewStory(${story.id})">
+                  <div class="story-avatar">
+                <div class="story-preview ${story.background}" style="width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; text-align: center; padding: 4px; box-sizing: border-box;">
+                    ${story.text.substring(0, 20)}${story.text.length > 20 ? '...' : ''}
+                </div>
+            </div>
+            <div class="story-username">${story.username}</div>
+        </div>
+    `).join('');
+    
+    // Update stories container (keep the add story button)
+    const addStoryHtml = storiesContainer.querySelector('.add-story').outerHTML;
+    storiesContainer.innerHTML = addStoryHtml + userStories;
+}
+
+// Interactive Functions
+function toggleLike(postId) {
+    const post = posts.find(p => p.id === postId);
+    if (post) {
+        post.liked = !post.liked;
+        post.likes += post.liked ? 1 : -1;
+        renderPosts();
+    }
+                                               }
+                      function sharePost(postId) {
+    const post = posts.find(p => p.id === postId);
+    if (post) {
+        if (navigator.share) {
+            navigator.share({
+                title: 'DesiGram Post',
+                text: post.caption,
+                url: window.location.href
+            });
+        } else {
+            // Fallback for browsers that don't support Web Share API
+            const shareText = `Check out this post on DesiGram: "${post.caption}"`;
+            navigator.clipboard.writeText(shareText).then(() => {
+                showNotification('Post link copied to clipboard!');
+            }).catch(() => {
+                showNotification('Share feature not available');
+            });
+        }
+    }
+}
+
+function viewStory(storyId) {
+    const story = stories.find(s => s.id === storyId);
+    if (story) {
+        alert(`Story by ${story.username}: "${story.text}"`);
+    }
+              }
+      // Search Functionality
+function handleSearch(e) {
+    const query = e.target.value.toLowerCase().trim();
+    
+    if (query.length === 0) {
+        searchResults.style.display = 'none';
+        return;
+    }
+    
+    // Search through posts and stories
+    const results = [];
+    
+    posts.forEach(post => {
+        if (post.caption.toLowerCase().includes(query) || post.username.toLowerCase().includes(query)) {
+            results.push({
+                type: 'post',
+                text: `Post: ${post.caption.substring(0, 50)}...`,
+                id: post.id
+            });
+        }
+    });
+    
+    stories.forEach(story => {
+        if (story.text.toLowerCase().includes(query) || story.username.toLowerCase().includes(query)) {
+            results.push({
+                type: 'story',
+                text: `Story: ${story.text.substring(0, 50)}...`,
+                id: story.id
+            });
+        }
+    });
+          if (results.length === 0) {
+        searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
+    } else {
+        searchResults.innerHTML = results.map(result => 
+            `<div class="search-result-item" onclick="goToResult('${result.type}', ${result.id})">${result.text}</div>`
+        ).join('');
+    }
+    
+    searchResults.style.display = 'block';
+}
+
+function goToResult(type, id) {
+    if (type === 'post') {
+        const postElement = document.querySelector(`[data-post-id="${id}"]`);
+        if (postElement) {
+            postElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    } else if (type === 'story') {
+        viewStory(id);
+    }
+    searchResults.style.display = 'none';
+    searchInput.value = '';
+}
+
+// Utility Functions
+function formatTime(timestamp) {
+    const now = new Date();
+    const diff = now - timestamp;
+  const minutes = Math.floor(diff / 60000);
+    const hours = Math.floor(diff / 3600000);
+    const days = Math.floor(diff / 86400000);
+    
+    if (minutes < 1) return 'Just now';
+    if (minutes < 60) return `${minutes}m ago`;
+    if (hours < 24) return `${hours}h ago`;
+    return `${days}d ago`;
+}
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showProfile() {
+    alert(`Profile: ${currentUser}\nPosts: ${posts.length}\nStories: ${stories.length}`);
+}
+
+function showNotification(message) {
+    // Create a simple notification
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: #262626;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        z-index: 1001;
+        font-size: 14px;
+        opacity: 0;
+        transition: opacity 0.3s;
+  `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => notification.style.opacity = '1', 100);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        setTimeout(() => document.body.removeChild(notification), 300);
+    }, 3000);
+}
+
+function loadInitialContent() {
+    // Load any saved data from localStorage
+    const savedPosts = localStorage.getItem('desigramPosts');
+    const savedStories = localStorage.getItem('desigramStories');
+    
+    if (savedPosts) {
+        posts = JSON.parse(savedPosts).map(post => ({
+            ...post,
+            timestamp: new Date(post.timestamp)
+        }));
+    }
+    
+    if (savedStories) {
+        stories = JSON.parse(savedStories).map(story => ({
+            ...story,
+          timestamp: new Date(story.timestamp)
+        }));
+    }
+    
+    renderPosts();
+    renderStories();
+    
+    // Save data whenever it changes
+    const saveData = () => {
+        localStorage.setItem('desigramPosts', JSON.stringify(posts));
+        localStorage.setItem('desigramStories', JSON.stringify(stories));
+    };
+    
+    // Save data periodically
+    setInterval(saveData, 5000);
+    
+    // Save data when page is about to unload
+    window.addEventListener('beforeunload', saveData);
+  }
