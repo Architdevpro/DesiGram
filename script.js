@@ -295,3 +295,50 @@ function scrollToTop() {
 function showProfile() {
     alert(`Profile: ${currentUser}\nPosts: ${posts.length}\nStories: ${stories.length}`);
 }
+function showNotification(message) {
+    // Create a simple notification
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: #262626;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        z-index: 1001;
+        font-size: 14px;
+        opacity: 0;
+        transition: opacity 0.3s;
+  `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => notification.style.opacity = '1', 100);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        setTimeout(() => document.body.removeChild(notification), 300);
+    }, 3000);
+}
+
+function loadInitialContent() {
+    // Load any saved data from localStorage
+    const savedPosts = localStorage.getItem('desigramPosts');
+    const savedStories = localStorage.getItem('desigramStories');
+    
+    if (savedPosts) {
+        posts = JSON.parse(savedPosts).map(post => ({
+            ...post,
+            timestamp: new Date(post.timestamp)
+        }));
+    }
+    
+    if (savedStories) {
+        stories = JSON.parse(savedStories).map(story => ({
+            ...story,
+          timestamp: new Date(story.timestamp)
+        }));
+    }
