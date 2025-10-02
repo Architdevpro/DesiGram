@@ -404,51 +404,7 @@ And finally, here's the JavaScript file (script.js):
 
     
     
-    postsContainer.innerHTML = posts.map(post => `
-        <article class="post" data-post-id="${post.id}">
-            <div class="post-header">
-                <div class="post-avatar"></div>
-                <a href="#" class="post-username">${post.username}</a>
-            </div>
-            <div class="post-content ${post.colorClass}">
-                ${post.imageUrl ? `<img src="${post.imageUrl}" alt="Post image" style="max-width: 100%; max-height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">` : ''}
-                <div ${post.imageUrl ? 'style="display: none;"' : ''}>${post.caption}</div>
-            </div>
-            <div class="post-actions">
-                <button class="action-btn like-btn" 
-                       onclick="sharePost(${post.id})">
-                    <svg class="action-icon" viewBox="0 0 24 24">
-                        <path d="M12.003 2.001c5.55 0 10.001 4.451 10.001 9.996 0 5.546-4.451 9.997-10.001 9.997-5.55 0-9.996-4.451-9.996-9.997 0-5.545 4.446-9.996 9.996-9.996zm0 1.5c-4.69 0-8.496 3.807-8.496 8.496s3.807 8.497 8.496 8.497 8.497-3.807 8.497-8.497-3.807-8.496-8.497-8.496zm-.747 7.75h-3.5c-.414 0-.75.336-.75.75s.336.75.75.75h3.5v3.5c0 .414.336.75.75.75s.75-.336.75-.75v-3.5h3.5c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-3.5v-3.5c0-.414-.336-.75-.75-.75s-.75.336-.75.75v3.5z"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="likes">${post.likes} ${post.likes === 1 ? 'like' : 'likes'}</div>
-            <div class="post-caption">
-                <span class="caption-username">${post.username}</span>
-                ${post.caption}
-            </div>
-            <div class="post-time">${formatTime(post.timestamp)}</div>
-        </article>
-    `).join('');
-}
-
-function renderStories() {
-    const userStories = stories.map(story => `
-        <div class="story" onclick="viewStory(${story.id})">
-                  <div class="story-avatar">
-                <div class="story-preview ${story.background}" style="width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; text-align: center; padding: 4px; box-sizing: border-box;">
-                    ${story.text.substring(0, 20)}${story.text.length > 20 ? '...' : ''}
-                </div>
-            </div>
-            <div class="story-username">${story.username}</div>
-        </div>
-    `).join('');
     
-    // Update stories container (keep the add story button)
-    const addStoryHtml = storiesContainer.querySelector('.add-story').outerHTML;
-    storiesContainer.innerHTML = addStoryHtml + userStories;
-}
-
 // Interactive Functions
 function toggleLike(postId) {
     const post = posts.find(p => p.id === postId);
