@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DesiGram</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">DesiGram</a>
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search" id="searchInput">
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="nav-icons">
+                <button class="nav-btn" id="homeBtn" title="Home">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.265-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </button>
+                <button class="nav-btn" id="createBtn" title="Create Post">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M12.003 2.001c5.55 0 10.001 4.451 10.001 9.996 0 5.546-4.451 9.997-10.001 9.997-5.55 0-9.996-4.451-9.996-9.997 0-5.545 4.446-9.996 9.996-9.996zm0 1.5c-4.69 0-8.496 3.807-8.496 8.496s3.807 8.497 8.496 8.497 8.497-3.807 8.497-8.497-3.807-8.496-8.497-8.496zm-.747 7.75h-3.5c-.414 0-.75.336-.75.75s.336.75.75.75h3.5v3.5c0 .414.336.75.75.75s.75-.336.75-.75v-3.5h3.5c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-3.5v-3.5c0-.414-.336-.75-.75-.75s-.75.336-.75.75v3.5z"/>
+                    </svg>
+                </button>
+                <button class="nav-btn" id="profileBtn" title="Profile">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M12.001 9c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4zm0-7c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Stories Section -->
+        <div class="stories-container" id="storiesContainer">
+            <div class="story add-story" id="addStoryBtn">
+                <div class="story-avatar">
+                    <div class="add-story-icon">+</div>
+                </div>
+                <div class="story-username">Your story</div>
+            </div>
+        </div>
+
+        <!-- Posts Container -->
+        <div class="posts-container" id="postsContainer">
+            <!-- Posts will be dynamically added here -->
+        </div>
+    </main>
+
+    <!-- Create Post Modal -->
+    <div class="modal" id="createPostModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Post</h3>
+                <button class="close-btn" id="closeModalBtn">&times;</button>
+            </div>
+            <form class="create-post-form" id="createPostForm">
+                <div class="form-group">
+                    <label for="postCaption">Caption:</label>
+                    <textarea id="postCaption" placeholder="Write a caption..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="postImage">Image URL (optional):</label>
+                    <input type="url" id="postImage" placeholder="https://example.com/image.jpg">
+                </div>
+                <div class="form-group">
+                    <label for="postColor">Background Color:</label>
+                    <select id="postColor">
+                        <option value="gradient1">Sunset Orange</option>
+                        <option value="gradient2">Ocean Blue</option>
+                        <option value="gradient3">Forest Green</option>
+                        <option value="gradient4">Purple Dream</option>
+                        <option value="gradient5">Rose Gold</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Share Post</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Story Modal -->
+    <div class="modal" id="storyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add to Your Story</h3>
+                <button class="close-btn" id="closeStoryModalBtn">&times;</button>
+            </div>
+            <form class="create-story-form" id="createStoryForm">
+                <div class="form-group">
+                    <label for="storyText">Story Text:</label>
+                    <textarea id="storyText" placeholder="What's on your mind?" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="storyBackground">Background:</label>
+                    <select id="storyBackground">
+                        <option value="bg1">Vibrant Pink</option>
+                        <option value="bg2">Cool Blue</option>
+                        <option value="bg3">Warm Yellow</option>
+                        <option value="bg4">Fresh Green</option>
+                        <option value="bg5">Royal Purple</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Add Story</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9883dde9045259a6',t:'MTc1OTQwNDYxNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
