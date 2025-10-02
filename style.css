@@ -400,27 +400,3 @@ body {
     margin: 0;
     font-size: 14px;
 }
-And finally, here's the JavaScript file (script.js):
-
-    
-    
-    
-
-
-
-    
-    renderPosts();
-    renderStories();
-    
-    // Save data whenever it changes
-    const saveData = () => {
-        localStorage.setItem('desigramPosts', JSON.stringify(posts));
-        localStorage.setItem('desigramStories', JSON.stringify(stories));
-    };
-    
-    // Save data periodically
-    setInterval(saveData, 5000);
-    
-    // Save data when page is about to unload
-    window.addEventListener('beforeunload', saveData);
-  }
