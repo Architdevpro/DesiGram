@@ -82,3 +82,60 @@ function handleCreatePost(e) {
         alert('Please enter a caption for your post.');
         return;
     }
+const newPost = {
+        id: Date.now(),
+        username: currentUser,
+        caption: caption.trim(),
+        imageUrl: imageUrl.trim(),
+        colorClass: colorClass,
+        likes: 0,
+        liked: false,
+        timestamp: new Date()
+    };
+    posts.unshift(newPost);
+    renderPosts();
+    closeModal(createPostModal);
+    
+    // Show success message
+    showNotification('Post shared successfully!');
+}
+
+// Story Creation
+function handleCreateStory(e) {
+    e.preventDefault();
+    
+    const text = document.getElementById('storyText').value;
+    const background = document.getElementById('storyBackground').value;
+    
+    if (!text.trim()) {
+        alert('Please enter some text for your story.');
+        return;
+    }
+    
+    const newStory = {
+        id: Date.now(),
+        username: currentUser,
+        text: text.trim(),
+        background: background,
+        timestamp: new Date()
+    };
+    
+    stories.unshift(newStory);
+    renderStories();
+    closeModal(storyModal);
+      // Show success message
+    showNotification('Story added successfully!');
+}
+
+// Render Functions
+function renderPosts() {
+    if (posts.length === 0) {
+        postsContainer.innerHTML = `
+            <div class="empty-state">
+                <h3>No posts yet</h3>
+                <p>Create your first post to get started!</p>
+            </div>
+        `;
+        return;
+    }
+    
