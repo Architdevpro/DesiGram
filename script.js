@@ -342,3 +342,18 @@ function loadInitialContent() {
           timestamp: new Date(story.timestamp)
         }));
     }
+    renderPosts();
+    renderStories();
+    
+    // Save data whenever it changes
+    const saveData = () => {
+        localStorage.setItem('desigramPosts', JSON.stringify(posts));
+        localStorage.setItem('desigramStories', JSON.stringify(stories));
+    };
+    
+    // Save data periodically
+    setInterval(saveData, 5000);
+    
+    // Save data when page is about to unload
+    window.addEventListener('beforeunload', saveData);
+}
